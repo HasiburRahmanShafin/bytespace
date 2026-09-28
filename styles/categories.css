@@ -1,0 +1,112 @@
+/* ==========================================================================
+   ByteSpace Topic Categories Styles
+   Matching Figma's Circular Neon Lime Icon Feature Cards
+   ========================================================================== */
+
+.categories-section {
+  background-color: #ffffff;
+  padding-block: 5.5rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+}
+
+.category-card {
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--color-accent-lime);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(22, 87, 255, 0.3);
+  box-shadow: 0 16px 30px rgba(22, 87, 255, 0.1);
+}
+
+.category-card:hover::before {
+  opacity: 1;
+}
+
+/* Figma's Distinct Neon Lime Circular Icon Badge */
+.category-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--color-accent-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: #0b1329;
+  font-size: 1.75rem;
+  box-shadow: 0 8px 20px rgba(212, 248, 58, 0.45);
+  transition: all var(--transition-normal);
+}
+
+.category-card:hover .category-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 25px rgba(212, 248, 58, 0.65);
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-dark);
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1100px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .category-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .category-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+
+  .category-title {
+    font-size: 0.95rem;
+  }
+}
